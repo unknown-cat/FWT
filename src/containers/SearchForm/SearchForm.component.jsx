@@ -5,17 +5,18 @@ import {
   SelectLocation,
   SelectName,
 } from '../../components';
+import { Section } from './searchForm.styles';
 
 const SearchForm = () => {
   return (
-    <div>
+    <Section>
       <form>
         <SelectName />
         <SelectAuthor />
         <SelectLocation />
         <SelectCreatedDate />
       </form>
-    </div>
+    </Section>
   );
 };
 
