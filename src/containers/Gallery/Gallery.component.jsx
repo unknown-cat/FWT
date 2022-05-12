@@ -4,7 +4,7 @@ import { Section } from './gallery.styles';
 import { useGlobalContext } from '../../context';
 
 const Gallery = () => {
-  const { isLoading, data } = useGlobalContext();
+  const { isLoading, pictures } = useGlobalContext();
 
   if (isLoading) {
     return (
@@ -16,7 +16,7 @@ const Gallery = () => {
 
   return (
     <Section>
-      {data?.map((painting) => (
+      {pictures?.map((painting) => (
         <Painting key={painting.id} {...painting} />
       ))}
     </Section>
