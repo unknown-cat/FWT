@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { ReactComponent as Icon } from './assets/triangle.svg';
 
 export default createGlobalStyle`	
 * {
@@ -74,4 +75,8 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 767px) {
     flex: unset;
   }
+`;
+
+export const DropDownIcon = styled(Icon)`
+  fill: ${({ theme }) => theme.searchBorder};
 `;
