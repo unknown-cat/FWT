@@ -24,8 +24,8 @@ a {
 body {
   min-width: 320px;
   margin: auto;
-  background: white;
-  color: black;
+  background: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.txt};
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: normal;
