@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`	
 * {
@@ -54,3 +54,24 @@ export const darkTheme = {
   buttonHover: '#464646',
   inputBg: '#FFFFFF',
 };
+
+export const Wrapper = styled.div`
+  position: relative;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 1365px) {
+    flex: 0 1 260px;
+  }
+
+  @media screen and (max-width: 1365px) {
+    flex: 0 1 220px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    flex: 0 1 160px;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex: unset;
+  }
+`;
