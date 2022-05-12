@@ -33,3 +33,24 @@ body {
   transition: all 0.25s linear;
 }
 `;
+
+// Theme
+export const lightTheme = {
+  bg: '#FFFFFF',
+  txt: '#000000',
+  searchBg: '#FFFFFF',
+  searchBorder: 'rgba(0, 0, 0, 0.3)',
+  border: 'rgba(0, 0, 0, 0.8)',
+  buttonHover: '#EDEDED',
+  inputBg: '#EFEFEF',
+};
+
+export const darkTheme = {
+  bg: '#000000',
+  txt: '#FFFFFF',
+  searchBg: '#0C0C0C',
+  searchBorder: 'rgba(255, 255, 255, 0.3)',
+  border: 'rgba(255, 255, 255, 0.8)',
+  buttonHover: '#464646',
+  inputBg: '#FFFFFF',
+};
