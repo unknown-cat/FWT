@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
 
   return (
-    <AppContext.Provider value={{ toggleTheme }}>
+    <AppContext.Provider value={{ toggleTheme, theme }}>
       {children}
     </AppContext.Provider>
   );
