@@ -10,7 +10,7 @@ import {
 } from './pagination.styles';
 
 const Pagination = () => {
-  const { isLoading, data } = useGlobalContext();
+  const { isLoading, data, setPage, page } = useGlobalContext();
 
   if (!data.length) {
     return (
@@ -24,21 +24,42 @@ const Pagination = () => {
     <PaginationWrapper>
       {!isLoading && (
         <ButtonWrapper>
-          <button type='button'>
+          <button
+            type='button'
+            disabled={page ? 0 : 1}
+            onClick={() => setPage(0)}
+          >
             <FirstPageIcon />
           </button>
-          <button type='button'>
+          <button
+            type='button'
+            disabled={page ? 0 : 1}
+            onClick={() => setPage(page - 1)}
+          >
             <PrevPageIcon />
           </button>
           {data.map((_, i) => (
-            <button key={i} type='button'>
+            <button
+              className={i === page ? `active-btn` : null}
+              key={i}
+              type='button'
+              onClick={() => setPage(i)}
+            >
               {i + 1}
             </button>
           ))}
-          <button type='button'>
+          <button
+            type='button'
+            disabled={page === data.length - 1 ? 1 : 0}
+            onClick={() => setPage(page + 1)}
+          >
             <NextPageIcon />
           </button>
-          <button type='button'>
+          <button
+            type='button'
+            disabled={page === data.length - 1 ? 1 : 0}
+            onClick={() => setPage(data.length - 1)}
+          >
             <LastPageIcon />
           </button>
         </ButtonWrapper>
