@@ -1,12 +1,25 @@
 import React from 'react';
-import Painting from '../../components/Painting/Painting.component';
+import { Painting } from '../../components';
+import { Section } from './gallery.styles';
+import { useGlobalContext } from '../../context';
 
 const Gallery = () => {
+  const { isLoading, data } = useGlobalContext();
+
+  if (isLoading) {
+    return (
+      <section style={{ display: 'flex', justifyContent: 'center' }}>
+        <h2 style={{ color: 'silver', fontSize: '3rem' }}>Loading...</h2>
+      </section>
+    );
+  }
+
   return (
-    <div>
-      Gallery
-      <Painting />
-    </div>
+    <Section>
+      {data?.map((painting) => (
+        <Painting key={painting.id} {...painting} />
+      ))}
+    </Section>
   );
 };
 
