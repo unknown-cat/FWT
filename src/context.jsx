@@ -3,6 +3,8 @@ import { paginate } from './utils/utils';
 import { getData } from './api/api';
 
 const API_PAINTINGS_ENDPONT = 'https://test-front.framework.team/paintings?q=';
+const API_AUTHORS_ENDPONT = 'https://test-front.framework.team/authors';
+const API_LOCATIONS_ENDPOINT = 'https://test-front.framework.team/locations';
 
 const AppContext = React.createContext();
 
@@ -20,6 +22,8 @@ const AppProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [pictures, setPictures] = useState([]);
   const [page, setPage] = useState(0);
+  const [selectAuthor, setSelectAuthor] = useState([]);
+  const [selectLocation, setSelectLocation] = useState([]);
 
   const toggleTheme = () =>
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -39,9 +43,36 @@ const AppProvider = ({ children }) => {
     setPictures(data[page]);
   }, [isLoading, page, data]);
 
+  useEffect(() => {
+    getData(API_AUTHORS_ENDPONT).then((data) => {
+      const authors = data.map((author) => ({
+        value: author.id,
+        label: author.name,
+      }));
+      setSelectAuthor(authors);
+    }, []);
+
+    getData(API_LOCATIONS_ENDPOINT).then((data) => {
+      const locations = data.map((location) => ({
+        value: location.id,
+        label: location.location,
+      }));
+      setSelectLocation(locations);
+    });
+  }, []);
   return (
     <AppContext.Provider
-      value={{ toggleTheme, theme, isLoading, data, pictures, page, setPage }}
+      value={{
+        toggleTheme,
+        theme,
+        isLoading,
+        data,
+        pictures,
+        page,
+        setPage,
+        selectAuthor,
+        selectLocation,
+      }}
     >
       {children}
     </AppContext.Provider>
