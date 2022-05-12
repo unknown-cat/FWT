@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { Input } from './selectName.styles';
+import { Wrapper } from '../../globalStyles';
 
 const SelectName = () => {
   return (
-    <div>SelectName</div>
-  )
-}
+    <Wrapper>
+      <label htmlFor='name'></label>
+      <Input
+        id='name'
+        type='text'
+        name='name'
+        placeholder='Name'
+        autoComplete='off'
+      />
+    </Wrapper>
+  );
+};
 
-export default SelectName
+export default SelectName;
