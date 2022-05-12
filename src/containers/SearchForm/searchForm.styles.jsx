@@ -8,17 +8,17 @@ export const Section = styled.div`
   max-width: 1170px;
   min-height: 70px;
   margin: 5rem auto 2.5rem;
-
-  .search-form-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-    cursor: pointer;
-
-    @media screen and (max-width: 767px) {
-      flex-direction: column;
-    }
-  }
 `;
+
+export const FormList = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+`
