@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { HeaderContainer, MainLogo, ToggleTheme } from './header.styles';
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <HeaderContainer>
+      <MainLogo />
+      <ToggleTheme />
+    </HeaderContainer>
+  );
+};
 
-export default Header
+export default Header;
