@@ -1,7 +1,10 @@
 import React from 'react';
 import { Article, Img, Section, H3, Ul, Li } from './painting.styles';
+import { useGlobalContext } from '../../context';
 
 const Painting = ({ authorId, created, imageUrl, name }) => {
+  const { selectAuthor, selectLocation } = useGlobalContext();
+
   return (
     <Article>
       <Img
@@ -17,14 +20,18 @@ const Painting = ({ authorId, created, imageUrl, name }) => {
         <Ul>
           <Li>
             <b>Actor: </b>
-            data
+            {selectAuthor.map((author) =>
+              author.value === authorId ? author.label : null
+            )}
           </Li>
           <Li>
             <b>Created:</b> {created}
           </Li>
           <Li>
             <b>Location: </b>
-            data
+            {selectLocation.map((location) =>
+              location.value === authorId ? location.label : null
+            )}
           </Li>
         </Ul>
       </Section>
