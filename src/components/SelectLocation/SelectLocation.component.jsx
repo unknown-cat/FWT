@@ -2,6 +2,7 @@ import React from 'react';
 import Select, { components } from 'react-select';
 import { DropDownIcon } from '../../globalStyles';
 import { LocationWrapper } from './selectLocation.styles';
+import { useGlobalContext } from '../../context';
 
 const DropdownIndicator = (props) => {
   return (
@@ -12,6 +13,7 @@ const DropdownIndicator = (props) => {
 };
 
 const SelectLocation = () => {
+  const { selectLocation } = useGlobalContext();
 
   return (
     <LocationWrapper>
@@ -19,6 +21,7 @@ const SelectLocation = () => {
         classNamePrefix='custom-select'
         isClearable
         placeholder='Locations'
+        options={selectLocation}
         components={{ DropdownIndicator }}
         styles={{
           dropdownIndicator: (provided, state) => ({
