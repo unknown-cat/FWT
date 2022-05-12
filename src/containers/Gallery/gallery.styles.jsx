@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  width: 90vw;
-  max-width: 1170px;
   display: grid;
   grid-gap: 2rem;
-  gap: 1.25rem;
+  width: 90vw;
+  max-width: 1170px;
   margin: 0 auto;
   padding-bottom: 2.5rem;
 
