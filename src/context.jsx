@@ -6,8 +6,16 @@ const API_PAINTINGS_ENDPONT = 'https://test-front.framework.team/paintings?q=';
 
 const AppContext = React.createContext();
 
+// Set Theme
+const getLocalStorageTheme = () => {
+  let theme = localStorage.getItem('theme')
+    ? localStorage.getItem('theme')
+    : 'light';
+  return theme;
+};
+
 const AppProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(getLocalStorageTheme());
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [pictures, setPictures] = useState([]);
@@ -15,6 +23,10 @@ const AppProvider = ({ children }) => {
 
   const toggleTheme = () =>
     theme === 'light' ? setTheme('dark') : setTheme('light');
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     setIsLoading(true);
