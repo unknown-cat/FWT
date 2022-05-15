@@ -11,6 +11,10 @@ export const HeaderContainer = styled.header`
   max-width: 1170px;
   min-height: 70px;
   margin: 5rem auto 3rem;
+
+  @media screen and (min-width: 992px) {
+    width: 95vw;
+  }
 `;
 
 export const MainLogo = styled(Logo)`
@@ -25,6 +29,7 @@ export const ToggleTheme = styled(DarkSun)`
   &:hover {
     transform: scale(1.1);
   }
+  
   &:active {
     transform: scale(0.8);
   }
