@@ -23,7 +23,7 @@ export const DropDownInputContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2rem;
+  padding: 1.2rem;
   background: ${({ theme }) => theme.searchBg};
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -40,7 +40,7 @@ export const DropDownInputContainer = styled.div`
   @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     justify-content: space-between;
     align-items: center;
   }
