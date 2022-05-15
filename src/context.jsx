@@ -25,6 +25,7 @@ const AppProvider = ({ children }) => {
   const [selectAuthor, setSelectAuthor] = useState([]);
   const [selectLocation, setSelectLocation] = useState([]);
   const [name, setName] = useState('');
+  const [authorId, setAuthorId] = useState('');
 
   const toggleTheme = () =>
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -35,11 +36,11 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    getData(`${API_PAINTINGS_ENDPONT}${name}`).then((data) =>
+    getData(`${API_PAINTINGS_ENDPONT}${name}${authorId}`).then((data) =>
       setData(paginate(data))
     );
     setIsLoading(false);
-  }, [name]);
+  }, [name, authorId]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -76,12 +77,14 @@ const AppProvider = ({ children }) => {
         selectAuthor,
         selectLocation,
         setName,
+        setAuthorId,
       }}
     >
       {children}
     </AppContext.Provider>
   );
 };
+
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };
