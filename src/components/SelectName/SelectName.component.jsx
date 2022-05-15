@@ -1,8 +1,11 @@
 import React from 'react';
 import { Input } from './selectName.styles';
 import { Wrapper } from '../../globalStyles';
+import { useGlobalContext } from '../../context';
 
 const SelectName = () => {
+  const { setName } = useGlobalContext();
+
   return (
     <Wrapper>
       <label htmlFor='name'></label>
@@ -12,6 +15,7 @@ const SelectName = () => {
         name='name'
         placeholder='Name'
         autoComplete='off'
+        onChange={(e) => setName(e.target.value)}
       />
     </Wrapper>
   );

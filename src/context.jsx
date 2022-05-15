@@ -24,6 +24,7 @@ const AppProvider = ({ children }) => {
   const [page, setPage] = useState(0);
   const [selectAuthor, setSelectAuthor] = useState([]);
   const [selectLocation, setSelectLocation] = useState([]);
+  const [name, setName] = useState('');
 
   const toggleTheme = () =>
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -34,9 +35,11 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    getData(API_PAINTINGS_ENDPONT).then((data) => setData(paginate(data)));
+    getData(`${API_PAINTINGS_ENDPONT}${name}`).then((data) =>
+      setData(paginate(data))
+    );
     setIsLoading(false);
-  }, []);
+  }, [name]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -72,6 +75,7 @@ const AppProvider = ({ children }) => {
         setPage,
         selectAuthor,
         selectLocation,
+        setName,
       }}
     >
       {children}
