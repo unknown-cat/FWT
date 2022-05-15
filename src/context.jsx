@@ -40,10 +40,13 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     setIsLoading(true);
     getData(
-      `${API_PAINTINGS_ENDPONT}${name}${authorId}${locationId}${createdBefore}${createdFrom}`
-    ).then((data) => {
-      return setData(paginate(data));
-    });
+      `${API_PAINTINGS_ENDPONT}` +
+        `${name}` +
+        `${authorId}` +
+        `${locationId}` +
+        `${createdBefore}` +
+        `${createdFrom}`
+    ).then((data) => setData(paginate(data)));
     setIsLoading(false);
   }, [name, authorId, locationId, createdBefore, createdFrom]);
 
