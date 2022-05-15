@@ -13,7 +13,7 @@ export const Section = styled.section`
   }
 
   @media screen and (min-width: 767px) {
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   }
 
   @media screen and (min-width: 1023px) {
