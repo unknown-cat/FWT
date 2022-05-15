@@ -42,7 +42,6 @@ const AppProvider = ({ children }) => {
     getData(
       `${API_PAINTINGS_ENDPONT}${name}${authorId}${locationId}${createdBefore}${createdFrom}`
     ).then((data) => {
-      data.map(d=>console.log({d}))
       return setData(paginate(data));
     });
     setIsLoading(false);
