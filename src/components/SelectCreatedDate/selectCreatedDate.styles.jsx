@@ -63,6 +63,14 @@ export const DropDownContainer = styled.div`
     border-color: ${({ theme }) => theme.border};
   }
 
+  .open {
+    display: '';
+  }
+
+  .close {
+    display: none;
+  }
+
   //Hide Spinners
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
